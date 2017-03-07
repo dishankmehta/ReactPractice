@@ -3,6 +3,18 @@ import React from 'react';
 /*const App = () => <h1>Hello React</h1>;*/
 
 class App extends React.Component{
+
+    constructor(){
+        super();
+        this.state = {
+            txt: "This is the state txt"
+        }
+    }
+
+    update( e ){
+        this.setState({txt: e.target.value});
+    }
+
     render(){
         let txt = this.props.txt;
         return(
@@ -10,6 +22,9 @@ class App extends React.Component{
                 <h1>Hello React</h1>
                 <b>Bold</b>
                 <h2>{txt}</h2>
+                <input type="text" onChange={this.update.bind(this)}/>
+                <h3>{this.state.txt}</h3>
+                <h3>{this.props.txt}</h3>
             </div>
             )
     }
