@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 ReactDOM.render(
-  <App txt="This is a prop"/>,
+  <App cat={50}/>,
   document.getElementById('root')
 );
