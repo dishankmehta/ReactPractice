@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ControlCycle from './ControlCycle'
+import ReactMap from './ReactMap'
 
 ReactDOM.render(
-  <ControlCycle/>,
+  <ReactMap/>,
   document.getElementById('root')
 );
