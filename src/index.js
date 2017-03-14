@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import ControlCycle from './ControlCycle'
 
 ReactDOM.render(
-  <App cat={50}/>,
+  <ControlCycle/>,
   document.getElementById('root')
 );
