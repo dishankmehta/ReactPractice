@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactMap from './ReactMap'
+import ReusableCompo from './ReusableCompo'
 
 ReactDOM.render(
-  <ReactMap/>,
+  <ReusableCompo/>,
   document.getElementById('root')
 );
