@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReusableCompo from './ReusableCompo'
+import FormPractice from './FormPractice'
 
 ReactDOM.render(
-  <ReusableCompo/>,
+  <FormPractice/>,
   document.getElementById('root')
 );
