@@ -13,6 +13,7 @@ class FormPractice extends React.Component{
         super();
         this.setValues = this.setValues.bind(this);
         this.submitData = this.submitData.bind(this);
+        this.updateData = this.updateData.bind(this);
         this.state = {
             firstName: '',
             lastName: '',
@@ -113,6 +114,12 @@ class FormPractice extends React.Component{
             alert("Passwords do no match...!!!");
         }
     }
+
+
+    updateData(e){
+
+    }
+
 }
 
 class ShowTable extends React.Component{
@@ -120,7 +127,9 @@ class ShowTable extends React.Component{
     constructor(){
         super();
         const tempData = [];
-        this.state = {tempData}
+        this.state = {tempData};
+        this.deleteData = this.deleteData.bind(this);
+        this.editData = this.editData.bind(this);
     }
 
     componentWillMount(){
@@ -158,13 +167,17 @@ class ShowTable extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
-                                {this.state.tempData.map((user,i) =>
-                                    <tr key={i}>
+                                {this.state.tempData.map((user) =>
+                                    <tr key={user.id}>
                                         <td key={user.firstName}>{user.firstName}</td>
                                         <td key={user.lastName}>{user.lastName}</td>
                                         <td key={user.userName}>{user.userName}</td>
                                         <td key={user.email}>{user.email}</td>
-                                        <td key="buttons">Buttons</td>
+                                        <td key="editButton">
+                                            <button type="button" className="btn btn-success btn-width" onClick={this.editData(user.id)}>Edit</button>
+                                            <span>    </span>
+                                            <button type="button" className="btn btn-danger btn-width" onClick={this.deleteData(user.id)}>Delete</button>
+                                        </td>
                                     </tr>
                                 )}
                             </tbody>
@@ -173,6 +186,23 @@ class ShowTable extends React.Component{
                 </div>
             </div>
         )
+    }
+
+    editData(e,id){
+        /*let url = `http://localhost:8080/SpringJDBC/user/${id}`;*/
+    }
+
+    deleteData(e,id){
+        let url = `http://localhost:8080/SpringJDBC/user/${id}`;
+        axios.delete(url)
+            .then((response) => {
+                console.log("User with id: "+id+" deleted...!");
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+        location.reload();
     }
 
 }

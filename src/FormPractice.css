@@ -23,3 +23,7 @@
 .table-container{
     padding: 20px;
 }
+
+.btn-width{
+    width: 80px !important;
+}
